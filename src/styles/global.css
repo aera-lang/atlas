@@ -1,0 +1,77 @@
+:root {
+    color-scheme: light;
+
+    --pink: #f9d6e8;
+    --blue: #d6e8f9;
+    --lavender: #e2d6f9;
+    --cream: #fdf0d6;
+    --mist: #f7f0fe;
+    --deep: #2d2140;
+
+    --background: #fefcff;
+    --foreground: #2d2140;
+
+    --card: #ffffff;
+    --card-foreground: #2d2140;
+    --popover: #ffffff;
+    --popover-foreground: #2d2140;
+
+    --primary: #7c5cc4;
+    --primary-foreground: #ffffff;
+
+    --secondary: #f7f0fe;
+    --secondary-foreground: #2d2140;
+
+    --muted: #f7f0fe;
+    --muted-foreground: #7a6e93;
+
+    --accent: #e2d6f9;
+    --accent-foreground: #2d2140;
+
+    --destructive: oklch(0.577 0.245 27.325);
+
+    --border: #ece4f6;
+    --input: #ece4f6;
+    --ring: #c9b8ec;
+
+    --chart-1: #f9d6e8;
+    --chart-2: #d6e8f9;
+    --chart-3: #e2d6f9;
+    --chart-4: #fdf0d6;
+    --chart-5: #c9b8ec;
+
+    --radius: 1rem;
+
+    --sidebar: #faf6ff;
+    --sidebar-foreground: #2d2140;
+    --sidebar-primary: #7c5cc4;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e2d6f9;
+    --sidebar-accent-foreground: #2d2140;
+    --sidebar-border: #ece4f6;
+    --sidebar-ring: #c9b8ec;
+
+    --font-sans: 'Quicksand', system-ui, sans-serif;
+    --font-heading: 'Quicksand', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--foreground);
+    background: var(--background);
+    min-height: 100vh;
+}
+
+code, pre, kbd {
+    font-family: var(--font-mono);
+}

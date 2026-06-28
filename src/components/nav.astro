@@ -1,0 +1,220 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/vision', label: 'Vision' },
+  { href: '/atlas', label: 'Atlas' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/roadmap', label: 'Roadmap' },
+]
+
+const pathname = Astro.url.pathname
+
+function isActive(href: string) {
+  return href === '/' ? pathname === '/' : pathname.startsWith(href)
+}
+---
+
+<header class="header">
+    <nav class="nav">
+        <a href="/" class="nav-brand">
+        <img src="https://placehold.co/36x36" alt="" width="36" height="36" />
+        <span>Aera</span>
+        </a>
+
+        <div class="nav-links">
+        {links.map(({ href, label }) => (
+            <a href={href} class:list={['nav-link', { active: isActive(href) }]}>
+            {label}
+            </a>
+        ))}
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="nav-github">
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" width="16" height="16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+                -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                a7.67 7.67 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16
+                1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
+                1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+        </a>
+        </div>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+        </button>
+    </nav>
+
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+        {links.map(({ href, label }) => (
+        <a href={href} class:list={['nav-link', { active: isActive(href) }]}>
+            {label}
+        </a>
+        ))}
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="nav-github">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" width="14" height="14">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+            -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+            a7.67 7.67 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16
+            1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
+            1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+        </a>
+    </div>
+</header>
+
+<style>
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid color-mix(in srgb, var(--deep) 8%, transparent);
+        background: color-mix(in srgb, var(--background) 80%, transparent);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        max-width: 72rem;
+        margin-inline: auto;
+        padding-inline: 1.25rem;
+    }
+
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    .nav-brand img {
+        width: 2.25rem;
+        height: 2.25rem;
+        object-fit: contain;
+    }
+
+    .nav-brand span {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--deep);
+    }
+
+    .nav-links {
+        display: none;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        border-radius: 9999px;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--muted-foreground);
+        transition: background-color 0.15s, color 0.15s;
+    }
+
+    .nav-link:hover {
+        background: color-mix(in srgb, var(--background) 80%, transparent);
+        color: var(--deep);
+    }
+
+    .nav-link.active {
+        background: color-mix(in srgb, var(--accent) 80%, transparent);
+        color: var(--accent-foreground);
+    }
+
+    .nav-github {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 0.5rem;
+        border-radius: 9999px;
+        background: var(--deep);
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--background);
+        text-decoration: none;
+        transition: opacity 0.15s;
+    }
+
+    .nav-github:hover { opacity: 0.85; }
+
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: var(--deep);
+        transition: background-color 0.15s;
+    }
+
+    .nav-toggle:hover {
+        background: color-mix(in srgb, var(--background) 80%, transparent);
+    }
+
+    .icon-close { display: none; }
+
+    .nav-mobile {
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+        padding: 0.75rem 1.25rem;
+    }
+
+    .nav-mobile .nav-link {
+        border-radius: 0.75rem;
+        padding: 0.625rem 1rem;
+    }
+
+    .nav-mobile .nav-github {
+        margin-left: 0;
+        margin-top: 0.25rem;
+        border-radius: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+        .nav-links { display: flex; }
+        .nav-toggle { display: none; }
+    }
+</style>
+
+<script>
+    const toggle = document.getElementById('nav-toggle')!
+    const mobile = document.getElementById('nav-mobile')!
+
+    let open = false
+
+    toggle.addEventListener('click', () => {
+        open = !open
+        toggle.setAttribute('aria-expanded', String(open))
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+        mobile.setAttribute('aria-hidden', String(!open))
+        mobile.style.display = open ? 'flex' : ''
+        ;(toggle.querySelector('.icon-menu') as HTMLElement).style.display = open ? 'none' : ''
+        ;(toggle.querySelector('.icon-close') as HTMLElement).style.display = open ? '' : 'none'
+    })
+</script>
