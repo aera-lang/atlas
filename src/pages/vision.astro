@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/base.astro'
+import Callout from '../components/callout.astro'
+
+---
+
+
+
+
+
+
+<Base title="Vision — Aera" description="The philosophy and design intent behind Aera, a language built to make ideas feel light.">
+    <main class="vision">
+        <article>
+        <p class="eyebrow">VISION</p>
+        <h1>Code should just <em>feel right.</em></h1>
+
+        <div class="prose">
+
+            <Callout kind="note">
+            <p>This section is still being written.</p>
+            </Callout>
+
+            <p class="closing">
+            This page is currently a work in progress. I will soon populate the page once
+            I have fully developed the language's philosophy.
+            </p>
+        </div>
+        </article>
+    </main>
+</Base>
+
+<style>
+    .vision {
+        padding: 4rem 1.25rem 5rem;
+    }
+
+    article {
+        max-width: 680px;
+        margin-inline: auto;
+    }
+
+    .eyebrow {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--primary);
+    }
+
+    h1 {
+        margin: 0.75rem 0 0;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--deep);
+    }
+
+    .prose {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        color: color-mix(in srgb, var(--foreground) 85%, transparent);
+    }
+
+    .prose p { margin: 0; }
+
+    .prose h2 {
+        margin: 0.5rem 0 0;
+        font-family: var(--font-heading);
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    blockquote {
+        margin: 0;
+        background: var(--mist);
+        border-radius: 0.75rem;
+        padding: 1.25rem 1.5rem;
+        color: var(--deep);
+    }
+
+    blockquote p {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-style: italic;
+        line-height: 1.6;
+    }
+
+    .closing {
+        color: var(--muted-foreground) !important;
+    }
+</style>
