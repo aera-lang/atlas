@@ -1,0 +1,234 @@
+---
+import Base from '../layouts/base.astro'
+
+type Status = 'done' | 'in progress' | 'planned'
+
+type Milestone = {
+  version: string
+  title: string
+  status: Status
+  notes: string
+}
+
+const milestones: Milestone[] = [
+    {
+        version: '0.1',
+        title: 'Interpreter',
+        status: 'in progress',
+        notes: 'Establish the foundation of the language by implementing a working interpreter capable of executing basic Aera programs.',
+    },
+    {
+        version: '0.2',
+        title: 'Parser & lexer error recovery',
+        status: 'planned',
+        notes: 'Make syntax errors easier to understand and recover from.',
+    },
+    {
+        version: '0.3',
+        title: 'Static type system',
+        status: 'planned',
+        notes: 'Transition Aera from a dynamically interpreted language to a statically typed language with type inference.',
+    },
+]
+
+const statusLabel: Record<Status, string> = {
+    done:               'done',
+    'in progress':      'in progress',
+    planned:            'planned',
+}
+---
+
+<Base title="Roadmap — Aera" description="Where Aera is headed. An honest look at the versions of a solo language project.">
+    <main class="page">
+        <div class="roadmap-inner">
+
+        <div class="roadmap-header">
+            <p class="eyebrow">ROADMAP</p>
+            <h1>Where Aera is headed</h1>
+            <p class="lead">
+                A solo project built in the open with no fixed timeline.
+            </p>
+        </div>
+
+        <ol class="timeline">
+            {milestones.map((m) => (
+            <li class={`milestone milestone-${m.status.replace(' ', '-')}`}>
+                <span class="milestone-dot" aria-hidden="true" />
+                <div class="milestone-meta">
+                <span class="milestone-version">{m.version}</span>
+                <span class={`milestone-status status-${m.status.replace(' ', '-')}`}>
+                    {statusLabel[m.status]}
+                </span>
+                </div>
+                <h2>{m.title}</h2>
+                <p>{m.notes}</p>
+            </li>
+            ))}
+        </ol>
+
+        <div class="closing">
+            <h2>Following along</h2>
+            <p>
+                Want to follow along or contribute a thought? Check out Aera’s repository. Star it if you like it.
+            </p>
+            <a href="https://github.com" target="_blank" rel="noreferrer" class="github-btn">
+            <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+                -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                a7.67 7.67 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16
+                1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
+                1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            Star on GitHub
+            </a>
+        </div>
+
+        </div>
+    </main>
+</Base>
+
+<style>
+    .roadmap-inner {
+        max-width: 680px;
+        margin-inline: auto;
+    }
+
+    .roadmap-header {
+        text-align: center;
+    }
+
+    .eyebrow {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--primary);
+    }
+
+    h1 {
+        margin: 0.5rem 0 0;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--deep);
+    }
+
+    .lead {
+        margin: 0.75rem auto 0;
+        max-width: 36rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+        text-wrap: balance;
+    }
+
+    .timeline {
+        list-style: none;
+        margin: 3rem 0 0;
+        padding: 0 0 0 2rem;
+        border-left: 1px solid var(--border);
+    }
+
+    .milestone {
+        position: relative;
+        padding-bottom: 2.5rem;
+    }
+
+    .milestone:last-child {
+        padding-bottom: 0;
+    }
+
+    .milestone-dot {
+        position: absolute;
+        left: calc(-2rem - 0.5rem);
+        top: 0.2rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 9999px;
+        border: 3px solid var(--background);
+    }
+
+    .milestone-done        .milestone-dot { background: var(--primary); }
+    .milestone-in-progress .milestone-dot { background: var(--cream); }
+    .milestone-planned     .milestone-dot { background: var(--border); }
+
+    .milestone-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+    }
+
+    .milestone-version {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--muted-foreground);
+    }
+
+    .milestone-status {
+        border-radius: 9999px;
+        padding: 0.125rem 0.625rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .status-done         { background: var(--blue);  color: var(--deep); }
+    .status-in-progress  { background: var(--cream); color: var(--deep); }
+    .status-planned      { background: var(--mist);  color: var(--muted-foreground); }
+
+    .milestone h2 {
+        margin: 0.375rem 0 0;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--deep);
+    }
+
+    .milestone p {
+        margin: 0.375rem 0 0;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    .closing {
+        margin-top: 2rem;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: var(--card);
+        padding: 1.75rem;
+        text-align: center;
+    }
+
+    .closing h2 {
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--deep);
+    }
+
+    .closing p {
+        margin: 0.5rem auto 0;
+        max-width: 28rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    .github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+        border-radius: 9999px;
+        background: var(--deep);
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--background);
+        text-decoration: none;
+        transition: opacity 0.15s;
+    }
+
+    .github-btn:hover { opacity: 0.85; }
+</style>

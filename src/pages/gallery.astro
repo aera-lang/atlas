@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/base.astro'
+import Callout from '../components/callout.astro'
+---
+
+<Base title="Gallery — Aera in action" description="Paired examples of Aera code with plain-language explanations.">
+    <main class="page">
+        <div class="gallery-inner">
+        <p class="eyebrow">GALLERY</p>
+        <h1>Aera, in small pieces.</h1>
+        <p class="lead">
+            While I have written examples of Aera code on its github, I still need to 
+            work on the language syntax and design before creating examples here.
+        </p>
+
+        <div class="examples">
+                <Callout kind="note">
+                    <p>This section is still being written.</p>
+                </Callout>
+        </div>
+        </div>
+    </main>
+</Base>
+
+<style>
+    .gallery-inner {
+        max-width: 56rem;
+        margin-inline: auto;
+    }
+
+    .eyebrow {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--primary);
+    }
+
+    h1 {
+        margin: 0.5rem 0 0;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--deep);
+    }
+
+    .lead {
+        margin: 0.75rem 0 0;
+        max-width: 40rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    .examples {
+        margin-top: 3rem;
+    }
+
+</style>

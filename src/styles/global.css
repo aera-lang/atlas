@@ -75,3 +75,7 @@ body {
 code, pre, kbd {
     font-family: var(--font-mono);
 }
+
+.page {
+    padding: 4rem 1.25rem 5rem;
+}
