@@ -1,23 +1,65 @@
 ---
 import Base from '../layouts/base.astro'
-import Callout from '../components/callout.astro'
+import CodeBlock from '../components/code-block.astro'
+
+const examples = [
+    {
+        title: 'Main function',
+        description: 'In Aera, the main function represents the entry point for code execution.',
+        label: 'main.aera',
+        code: `fn main() {
+    println("Hello world!")
+}`,
+    },
+    {
+        title: 'Sum of two numbers',
+        description: 'Functions are defined with the fn keyword. Type annotations, including the return type are optional.',
+        label: 'sum.aera',
+        code: `fn sum(a: int64, b: int64) -> unit {
+    a + b
+}`,
+    },
+    {
+        title: 'Choosing with if',
+        description: 'if is an expression, meaning it produces a value you can bind to with the let keyword.',
+        label: 'choose.aera',
+        code: `let hour = 18
+
+let greeting = if hour < 17 {
+    "good day"
+} 
+else {
+    "good evening"
+}`,
+    },
+]
 ---
 
 <Base title="Gallery - Aera in action" description="Paired examples of Aera code with explanations.">
     <main class="page">
         <div class="gallery-inner">
-        <p class="eyebrow">GALLERY</p>
-        <h1>Aera, in small pieces.</h1>
-        <p class="lead">
-            While I have written examples of Aera code on its github, I still need to 
-            work on the language syntax and design before creating examples here.
-        </p>
-
-        <div class="examples">
-                <Callout kind="note">
-                    <p>This section is still being written.</p>
-                </Callout>
-        </div>
+            <p class="eyebrow">GALLERY</p>
+            <h1>Aera, in small pieces.</h1>
+            <p class="lead">
+                Each example shows how Aera works in practice. 
+            </p>
+            <div class="examples">
+                  {examples.map((ex, idx) => (
+                    <div class="example">
+                        <div class="example-grid">
+                        <CodeBlock label={ex.label} code={ex.code} />
+                        <div class="example-text">
+                            <div class="example-heading">
+                            <span class="example-num">{idx + 1}</span>
+                            <h2>{ex.title}</h2>
+                            </div>
+                            <p>{ex.description}</p>
+                        </div>
+                        </div>
+                        {idx < examples.length - 1 && <hr />}
+                    </div>
+                ))}  
+            </div>
         </div>
     </main>
 </Base>
@@ -54,6 +96,65 @@ import Callout from '../components/callout.astro'
 
     .examples {
         margin-top: 3rem;
+    }
+
+    .example-grid {
+        display: grid;
+        align-items: start;
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+        .example-grid {
+        grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .example-text {
+        padding-top: 0.25rem;
+    }
+
+    .example-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .example-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        flex-shrink: 0;
+        border-radius: 9999px;
+        background: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent-foreground);
+    }
+
+    h2 {
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--deep);
+    }
+
+    .example-text p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
     }
 
 </style>
