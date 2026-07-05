@@ -106,9 +106,6 @@ const tokenized = tokenize(code)
 <div class:list={['code-block', className]}>
     {label && (
         <div class="code-header">
-        <span class="dot dot-pink" />
-        <span class="dot dot-cream" />
-        <span class="dot dot-blue" />
         <span class="code-label">{label}</span>
         </div>
     )}
@@ -133,22 +130,11 @@ const tokenized = tokenize(code)
         align-items: center;
         gap: 0.375rem;
         border-bottom: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+        background: color-mix(in srgb, var(--accent) 30%, transparent);
         padding: 0.5rem 1rem;
     }
 
-    .dot {
-        display: block;
-        width: 0.625rem;
-        height: 0.625rem;
-        border-radius: 9999px;
-    }
-
-    .dot-pink  { background: var(--pink); }
-    .dot-cream { background: var(--cream); }
-    .dot-blue  { background: var(--blue); }
-
     .code-label {
-        margin-left: 0.5rem;
         font-family: var(--font-mono);
         font-size: 0.75rem;
         color: var(--muted-foreground);

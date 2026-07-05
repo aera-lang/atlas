@@ -81,13 +81,13 @@ const side_effect_example = `char advance() {
                 In statement-oriented languages, to compute something based on a branch, 
                 you often need to declare a variable above the branch and assign a value to it in each branch.
             </p>
-			<CodeBlock code={temp_var_example} />
+			<CodeBlock label="example.cpp" code={temp_var_example} />
             <p>
                 The result is mutable and its final value depends on the control flow that you have to trace manually. 
                 You can't look at result's declaration and know what it is. In Aera, if <i>is</i> the value:
 
             </p>
-        	<CodeBlock code={no_temp_var_example} />
+        	<CodeBlock label="example.cpp" code={no_temp_var_example} />
             <p>
                 Here, you can see what result will be without tracing through control flow. 
                 No uninitialized variable, no reassignment. What you see is what result is.
@@ -103,7 +103,7 @@ const side_effect_example = `char advance() {
                 but I don't want to have to create a logging class (with methods like debug, info, warning, and error) 
                 that's injected into every object needing to log something.
             </p>
-            <CodeBlock code={no_effect_window_example} />
+            <CodeBlock label="window.cpp" code={no_effect_window_example} />
             <p>
                 Logging is effectively interwoven into the Window class, 
                 but that makes the code harder to follow. 
@@ -116,7 +116,7 @@ const side_effect_example = `char advance() {
             <p>
                 With our logging example:
             </p>    
-            <CodeBlock code={effect_window_example} />
+            <CodeBlock label="window.aera" code={effect_window_example} />
             <p>
                 This separation of concerns increases readability, helping to achieve that goal of the language just feeling right. 
             </p>   
@@ -135,7 +135,7 @@ const side_effect_example = `char advance() {
                 It returns the character at the current index, but also updates that index before returning. 
                 This is the same lexer I mentioned earlier with Aera's first iteration, written in C++.
             </p>
-            <CodeBlock code={side_effect_example} />
+            <CodeBlock label="lexer.cpp" code={side_effect_example} />
             <p>
                 The function was reading and mutating state at the same time, 
                 with nothing in the signature to indicate it. 
