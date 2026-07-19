@@ -74,8 +74,7 @@ const side_effect_example = `char advance() {
                 including things that are traditionally "statements" in other languages (i.e., if, loops, blocks, and assignments), 
                 evaluates to a value. That value can then be used wherever a value is expected. 
                 There are many benefits of expression-oriented languages, 
-                but the one benefit I find important is the removal of temporary variables. 
-                A whole category of hidden state removed.
+                but the one benefit I find important is the removal of temporary variables.
             </p>
             <p>
                 In statement-oriented languages, to compute something based on a branch, 
@@ -133,7 +132,7 @@ const side_effect_example = `char advance() {
                 Side effects can be painful. 
                 Trust me, I know. Imagine this: you're writing a function to advance a lexer's state. 
                 It returns the character at the current index, but also updates that index before returning. 
-                This is the same lexer I mentioned earlier with Aera's first iteration, written in C++.
+                This is the same lexer I mentioned earlier with Aera's first iteration, written in C++:
             </p>
             <CodeBlock label="lexer.cpp" code={side_effect_example} />
             <p>
