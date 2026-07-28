@@ -2,17 +2,7 @@
 
 Variables in Aera are named values that are immutable by default, with optional type declarations.
 
-## Table of Contents
-
-- [Declaration and Initialization](#declaration-and-initialization)
-- [Scope](#scope)
-  - [Shadowing](#shadowing)
-  - [Lifetime](#lifetime)
-- [Naming Conventions](#naming-conventions)
-- [Initialization](#initialization)
-- [Type Annotations](#type-annotations)
-
-## Declaration and Initialization
+## Declaration
 
 Variables are declared in Aera using the `let` keyword. 
 
@@ -22,6 +12,9 @@ num = 4 # NOT allowed
 ```
 
 Variables are immutable by default in Aera. This means that once a variable has been assigned, the value stored at its memory location cannot be changed.
+
+## Mutability
+
 To make a variable mutable, the `mut` keyword must be used after the `let` keyword.
 
 ```aera
@@ -57,18 +50,17 @@ Variables in Aera must start with a letter (`a–z` or `A–Z`) or underscore (`
 The reserved words in Aera are:
 `fn, let, mut, const, pub, if, else, for, while, loop, match, break, return, module, use, struct, variant, in, as`
 
-These words **cannot be used as variable names** unless escaped with the grave accent (`).
+These words **cannot be used as variable names**.
 
-```aera
-let `fn` = 5       # valid
-let fn = 5         # invalid
-```
+> **Note**
+>
+> This may change in future releases.
 
 Variable names are recommended to use `snake_case` to follow Aera’s style.
 
 ## Initialization
 
-In Aera, a variable may or may not be initialized at the time of declaration:
+In Aera, a variable must be initialized at the time of declaration:
 
 ```aera
 let x: int32             # valid, type declared but no initial value
@@ -76,8 +68,7 @@ let y = 0                # valid, type inferred from expression
 let z: float64 = 3.14    # valid, explicit type and initialization
 ```
 
-If a variable is **declared without an initializer**, its value is considered **uninitialized**.
-Using an uninitialized variable before assigning a value will result in a **compilation error**.
+If a variable is **declared without an initializer**, it will result in a **compilation error**.
 
 ## Type Annotations
 

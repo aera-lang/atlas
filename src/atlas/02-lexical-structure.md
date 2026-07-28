@@ -2,18 +2,6 @@
 
 Aera’s lexical structure defines the basic symbols, tokens, and formatting rules that make up valid source code.
 
-## Table of Contents
-
-- [Character Set](#character-set)
-- [Identifiers](#identifiers)
-- [Keywords](#keywords)
-- [Symbolic Tokens](#symbolic-tokens)
-  - [Operator Tokens](#operator-tokens)
-  - [Punctuation & Separator Tokens](#punctuation--separator-tokens)
-  - [Other Tokens](#other-tokens)
-- [Comments](#comments)
-- [Whitespace](#whitespace)
-
 ## Character Set
 Aera source files are encoded in UTF-8.
 
@@ -23,9 +11,11 @@ An identifier starts with an alphabetic character or an underscore, followed by 
 ## Keywords
 
 The following are reserved keywords and cannot be used as identifiers:
-`fn, let, mut, const, pub, modifies, if, else, for, while, loop, match, break, continue, return, import, class, struct, enum, trait, with, alias, self, as, bind`
+`fn, let, mut, const, pub, if, else, for, while, loop, match, break, return, module, use, struct, variant, trait, in, as`
 
-Note that as the language expands, so will the reserved keywords.
+> **Note**
+>
+> As the language expands, so will the reserved keywords.
 
 ## Symbolic Tokens
 
@@ -75,12 +65,12 @@ Listed below are the following punctuation and separator tokens used in Aera:
 | Token    | Description                                                                               |
 | -------- | ----------------------------------------------------------------------------------------- |
 | \[ and ] | Subscript and deduced parameter lists                                                     |
-| ( and )  | Function call / declarations and tuple literals                                           |
-| { and }  | Blocks of control flow expressions, struct literals, body definitions (classes, functions)|
+| ( and )  | Function calls and tuple literals                                           |
+| { and }  | Blocks of control flow expressions, struct literals, body definitions |
 | ,        | Separate tuple and array elements                                                         |
 | .        | Member access                                                                             |
 | :        | Name binding patterns                                                                     |
-| ; or \n  | Statement separator                                                                       |
+                                
 
 ### Other Tokens
 Listed below are some other tokens used in Aera that don’t fit into the above categories:
@@ -88,7 +78,7 @@ Listed below are some other tokens used in Aera that don’t fit into the above 
 | Token | Description                 |
 | ----- | --------------------------- |
 | ->    | Return type                 |
-| =>    | Match syntax. Lambda        |
+| =>    | Match syntax, Lambda        |
 | @     | Compiler directive          |
 
 ## Comments

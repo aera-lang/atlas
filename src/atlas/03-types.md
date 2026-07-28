@@ -1,28 +1,7 @@
 # Type System
-Aera’s type system is designed to be expressive, safe, and simple. Many of the types listed below are types seen in other languages, including variant, 
-option and result types seen in many popular functional programming languages, such as OCaml.
+Aera’s type system is designed to be expressive, safe, and simple. Many of the types listed below are types seen in other languages, such as OCaml.
 
 > In Aera, types are immutable by default. To make them mutable, the `mut` keyword must be provided after the `let` keyword.
-
-## Table of Contents
-
-- [Primitive Types](#primitive-types)
-  - [Integer](#integer)
-  - [Floating Point](#floating-point)
-  - [Boolean](#boolean)
-  - [Character](#character)
-  - [String](#string)
-- [Compound Types](#compound-types)
-  - [Array](#array)
-  - [Tuple](#tuple)
-  - [Map](#map)
-- [Option and Result Types](#option-and-result-types)
-  - [Option](#option)
-  - [Result](#result)
-  - [Operators](#operators)
-- [User Defined Types](#user-defined-types)
-  - [Variant](#variant)
-  - [Struct](#struct)
 
 ## Primitive Types
 
@@ -36,21 +15,48 @@ Aera provides signed and unsigned integer types. If no type is specified, intege
 
 Aera also supports binary, octal, and hexadecimal notation, using the prefixes `0b`, `0o`, and `0x` (uppercase variants are also supported).
 
+```aera
+5
+0b00
+0o711
+0xFF0000
+```
+
 ### Floating Point
 
 Aera provides two floating-point types: `float32` and `float64`.
+
+```aera
+3.14
+10.
+0.0000001
+```
 
 ### Boolean
 
 A `bool` is an integer type that can be either `true` or `false`, occupying 1 byte of memory.
 
+```aera
+true
+false
+```
+
 ### Character
 
 A `char` is an integer type that stores a single character and occupies 1 byte of memory. Characters are enclosed in single quotation marks ('').
 
+```aera
+'a'
+'\n'
+```
+
 ### String
 
 A `string` is a **sequence** of characters, enclosed in double quotation marks ("").
+
+```aera
+"hello world"
+```
 
 ## Compound Types
 
@@ -58,22 +64,48 @@ A `string` is a **sequence** of characters, enclosed in double quotation marks (
 
 An array is a fixed-size data structure that stores elements of the same type (homogeneous) in contiguous memory.
 
-Aera provides two kinds of arrays:
-- Static arrays → Declared by specifying the element type. The size is **fixed** at declaration; elements can change, but the length cannot.
-- Dynamic arrays → Declared using the `arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
+#### Static arrays
+
+Can be declared by specifying the element type, or omitted. The size is **fixed** at declaration; elements can change, but the length cannot.
 
 ```aera
-let whole_numbers: int32[10] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-let arr: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
+let mut n: int32[4] = [0, 1, 2, 3]
+let n = [4, 5, 6, 7] # default = static immutable array
 ```
+
+#### Dynamic arrays
+
+Declared using the `arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
+
+```aera
+let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
+```
+
+> **Warning**
+>
+> As of 0.0.1, Aera does not support arrays in the language.
 
 ### Tuple
 
 A tuple is a fixed-size data structure that stores elements of different types (heterogeneous) in contiguous memory.
 Tuples are useful for returning multiple values from a function.
 
+> **Warning**
+>
+> As of 0.0.1, Aera does not support tuples in the language.
+
 ```aera
-let tuple: (string, bool) = ("hello world", true)
+let tuple = ("hello world", true)
+```
+### Struct
+
+A struct is a product type. It defines a compositie data type.
+
+```aera
+struct Player {
+    hp: int32
+    name: string
+}
 ```
 
 ### Map
@@ -84,6 +116,10 @@ A `map!<K, V>` is a generic associative container that stores key-value pairs, w
 - `V` represents the type of the values.
 
 Maps are useful for storing and retrieving data by keys quickly and are implemented using a hash-based structure under the hood.
+
+> **Warning**
+>
+> As of 0.0.1, Aera does not support maps in the language.
 
 ```aera
 let fruits: map!<str, int32> = {"apple": 0, "banana": 1 }
@@ -99,10 +135,14 @@ An option type explicitly represents values that might not exist. This is the on
 let maybe_value: opt!<int32> = some(42)
 
 match maybe_value { 
-    some(value) => print("Got: {}", value)
+    some(value) => print(value)
     none => print("No value")
 }
 ```
+
+> **Warning**
+>
+> As of 0.0.1, Aera does not support optionals in the language.
 
 ### Result
 
@@ -119,16 +159,20 @@ fn divide(a: float64, b: float64) -> res!<float64, string> {
 let result = divide(10.0, 2.0)
 
 match result { 
-    ok(value) => print("Ok: {}", value)
-    err(message) => print("Err: {}", message)
+    ok(value) => print(value)
+    err(message) => print(message)
 }
 ```
 
+> **Warning**
+>
+> As of 0.0.1, Aera does not support result types in the language.
+
 ### Operators
 
+Aera provides two convenient operators for working with optionals and errors: the try propagation`?` and fallback `??` operators.
 
-Aera provides two convenient operators for working with optionals and errors: `?` and  `??`.
-
+### Try Propagation (?) Operator
 The `?` operator is used to unwrap both optional and error values. 
 
 When applied to an optional (`opt!<T>`), it unwraps the contained value if present, or returns `none` immediately from the current function if the value is absent. 
@@ -148,6 +192,7 @@ fn read_file(path: string) -> res!<string, err> {
     return ok(content)
 }
 ```
+### Fallback (??) Operator
 
 The `??` operator is used to provide a fallback value for both optional and result types. 
 
@@ -163,7 +208,11 @@ fn safe_divide(a: int, b: int) -> int {
 }
 ```
 
-## User Defined Types
+> **Warning**
+>
+> As of 0.0.1, Aera does not support optional and result operators in the language.
+
+## Sum Types
 
 ### Variant
 
@@ -188,18 +237,5 @@ variant Shape {
     Triangle(base: float32, height: float32)
     Rectangle(width: float32, height: float32)
     Square(side: float32)
-}
-```
-
-### Struct
-
-A struct is a product type. It defines a compositie data type.
-
-They work similary to C / C++ structs, with the difference being that structs are immutable by default.
-
-```aera
-struct Player {
-    hp: int32
-    name: string
 }
 ```
