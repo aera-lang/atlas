@@ -1,55 +1,55 @@
 :root {
     color-scheme: light;
 
-    --pink: #f9d6e8;
+    --pink: #f0c3d1;
     --blue: #d6e8f9;
     --lavender: #e2d6f9;
-    --cream: #fdf0d6;
-    --mist: #f7f0fe;
+    --cream: #db97ad;
+    --mist: #faf4f6;
     --deep: #2d2140;
 
-    --background: #fefcff;
-    --foreground: #2d2140;
+    --background: #fdf9fa;
+    --foreground: #241a35;
 
     --card: #ffffff;
-    --card-foreground: #2d2140;
+    --card-foreground: #241a35;
     --popover: #ffffff;
-    --popover-foreground: #2d2140;
+    --popover-foreground: #241a35;
 
-    --primary: #7c5cc4;
+    --primary: #d9819c;
     --primary-foreground: #ffffff;
 
-    --secondary: #f7f0fe;
-    --secondary-foreground: #2d2140;
+    --secondary: #faf4f6;
+    --secondary-foreground: #241a35;
 
-    --muted: #f7f0fe;
-    --muted-foreground: #7a6e93;
+    --muted: #faf4f6;
+    --muted-foreground: #6e6274;
 
-    --accent: #e2d6f9;
-    --accent-foreground: #2d2140;
+    --accent: #f0c3d1;
+    --accent-foreground: #241a35;
 
     --destructive: oklch(0.577 0.245 27.325);
 
-    --border: #ece4f6;
-    --input: #ece4f6;
-    --ring: #c9b8ec;
+    --border: #eddce3;
+    --input: #eddce3;
+    --ring: #d9819c;
 
-    --chart-1: #f9d6e8;
-    --chart-2: #d6e8f9;
-    --chart-3: #e2d6f9;
-    --chart-4: #fdf0d6;
-    --chart-5: #c9b8ec;
+    --chart-1: #d9819c;
+    --chart-2: #f0c3d1;
+    --chart-3: #d6e8f9;
+    --chart-4: #e2d6f9;
+    --chart-5: #a893c9;
 
     --radius: 1rem;
 
-    --sidebar: #faf6ff;
-    --sidebar-foreground: #2d2140;
-    --sidebar-primary: #7c5cc4;
+    --sidebar: #fdf9fa;
+    --sidebar-foreground: #241a35;
+    --sidebar-primary: #d9819c;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #e2d6f9;
-    --sidebar-accent-foreground: #2d2140;
-    --sidebar-border: #ece4f6;
-    --sidebar-ring: #c9b8ec;
+    --sidebar-accent: #f0c3d1;
+    --sidebar-accent-foreground: #241a35;
+    --sidebar-border: #eddce3;
+    --sidebar-ring: #d9819c;
 
     --font-sans: 'Quicksand', system-ui, sans-serif;
     --font-heading: 'Quicksand', system-ui, sans-serif;
