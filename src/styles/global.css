@@ -79,3 +79,8 @@ code, pre, kbd {
 .page {
     padding: 4rem 1.25rem 5rem;
 }
+
+::selection {
+    background: var(--pink);
+    color: var(--foreground);
+}

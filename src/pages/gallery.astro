@@ -15,7 +15,7 @@ const examples = [
         title: 'Sum of two numbers',
         description: 'Functions are defined with the fn keyword. Type annotations, including the return type are optional.',
         label: 'sum.aera',
-        code: `fn sum(a: int64, b: int64) -> unit {
+        code: `fn sum(a: int64, b: int64) -> int64 {
     a + b
 }`,
     },
@@ -30,6 +30,19 @@ let greeting = if hour < 17 {
 } 
 else {
     "good evening"
+}`,
+    },
+      {
+        title: 'Recursion',
+        description: 'Aera supports recursion, allowing functions to call themselves.',
+        label: 'rec.aera',
+        code: `fn factorial(n: int32) -> int32 {
+    if n <= 1 {
+        1 
+    } 
+    else {
+        n * factorial(n - 1)
+    }               
 }`,
     },
 ]

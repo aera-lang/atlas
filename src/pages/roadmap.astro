@@ -13,22 +13,64 @@ type Milestone = {
 
 const milestones: Milestone[] = [
     {
-        version: '0.1',
-        title: 'Interpreter',
+        version: '0.0.1',
+        title: 'Proof of concept',
+        status: 'done',
+        notes: 'Implement a working read-eval-print-loop (REPL) capable of executing basic Aera programs.',
+    },
+    {
+        version: '0.0.2',
+        title: 'Diagnostics & error recovery',
         status: 'in progress',
-        notes: 'Establish the foundation of the language by implementing a working interpreter capable of executing basic Aera programs.',
+        notes: 'Make syntax errors easier to understand and recover from in the lexer and parser.',
     },
     {
-        version: '0.2',
-        title: 'Parser & lexer error recovery',
+        version: '0.0.3',
+        title: 'Pattern matching',
         status: 'planned',
-        notes: 'Make syntax errors easier to understand and recover from.',
+        notes: 'Create grammar rules, AST nodes and parser functions to parse the match expression.',
     },
     {
-        version: '0.3',
+        version: '0.0.4',
+        title: 'Compound types',
+        status: 'planned',
+        notes: 'Add tuples and static arrays to the language. ',
+    },
+    {
+        version: '0.0.5',
         title: 'Static type system',
         status: 'planned',
-        notes: 'Transition Aera from a dynamically interpreted language to a statically typed language with type inference.',
+        notes: 'Transition Aera from a dynamically interpreted language to a statically typed language.',
+    },
+    {
+        version: '0.0.6',
+        title: 'Type inference',
+        status: 'planned',
+        notes: 'Add type inference to Aera.',
+    },
+    {
+        version: '0.0.7',
+        title: 'Module system',
+        status: 'planned',
+        notes: 'Create a module system for Aera.',
+    },
+    {
+        version: '0.0.8',
+        title: 'Standard Library',
+        status: 'planned',
+        notes: 'Create simple modules as part of the std: io, math',
+    },
+    {
+        version: '0.0.9',
+        title: 'Interpreter',
+        status: 'planned',
+        notes: 'Implement a working interpreter capable of executing more complex Aera programs.',
+    },
+    {
+        version: '0.1.0',
+        title: 'Public Release',
+        status: 'planned',
+        notes: 'The first public release of Aera.',
     },
 ]
 
@@ -39,7 +81,7 @@ const statusLabel: Record<Status, string> = {
 }
 ---
 
-<Base title="Roadmap - Aera" description="Where Aera is headed. An honest look at the versions of a solo language project.">
+<Base title="Roadmap - Aera" description="Where Aera is headed.">
     <main class="page">
         <div class="roadmap-inner">
 
@@ -47,7 +89,7 @@ const statusLabel: Record<Status, string> = {
             <p class="eyebrow">ROADMAP</p>
             <h1>Where Aera is headed</h1>
             <p class="lead">
-                A solo project built in the open with no fixed timeline.
+                An honest look at the versions of a solo language project.
             </p>
         </div>
 
