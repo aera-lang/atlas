@@ -58,7 +58,7 @@ src/
 └── math/
     └── vector.aera
 ```
-For the math folder, we would have a filw with the name corresponding to the folder. In this case, it would be math.aera:
+For the math folder, we would have a file with the name corresponding to the folder. In this case, it would be math.aera:
 
 ```
 src/
@@ -73,9 +73,9 @@ module math
 pub use vector::{abs, dot}
 ```
 
-This allows you to see a folder's public surface without having to open it. (May remove this)
+This allows you to see a folder's public surface without having to open it.
 
-While the `/` operator corresponds to an actual file on disk to locate a modules entry  point, what stays stable across reorganization is the public path to something, because entry files re-export the declared module name rather than by internal file location.
+While the `/` operator corresponds to an actual file on disk to locate a modules entry point, the public path stays stable across reorganization as entry files re-export the declared module name rather than by internal file location.
 
 ## No Nested Modules
 

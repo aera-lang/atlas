@@ -12,15 +12,8 @@ Functions are defined using the `fn` keyword.
 
 ```aera
 # function syntax
-fn function_name(param1: type, param2: type) -> return_type {
-    function block
-}
-
-# example of a simple function
-fn count(n: int32) -> unit { # unit type returns nothing
-    for i in 0..n {
-        println(i)
-    }
+fn name(param: type) -> return_type {
+    block
 }
 ```
 
@@ -40,7 +33,7 @@ Aera provides the `main` function which represents the entry point for code exec
 
 ```aera
 fn main() {
-    println("Hello world!") # implictly returns the unit type ()
+    println("Hello world!")
 }
 ```
 
@@ -61,7 +54,7 @@ fn factorial(n: int32) -> int32 {
 
 ## Const 
 
-A const item is similar to a let statement, with the difference being that the value is known at compile time.
+A const item is similar to a let statement, with the difference being that the value is known at *compile time.*
 
 To declare a const item, you use the `const` keyword:
 
@@ -69,11 +62,11 @@ To declare a const item, you use the `const` keyword:
 const PI: float64 = 3.14
 ```
 
-Const items are immutable, you cannot use the `mut` keyword on them, or it will result in a compilation error.
+Const items are immutable, you cannot use the `mut` keyword on them, or it will result in a **compilation error.**
 
 ## Module
 
-A module declaration defines the name of the current module.
+A module item defines the name of the current module.
 Modules can only have one module declaration, and the module name must be unique within the program.
 
 ```aera
@@ -83,7 +76,7 @@ module Name
 
 ## Use
 
-A use declaration makes names from another module available in the current module.
+A use item makes names from another module available in the current module.
 
 ```aera
 use module
@@ -91,7 +84,7 @@ use module
 
 ## Struct
 
-A struct declaration introduces a new struct type into the current module.
+A struct item introduces a new struct type into the current module.
 
 ```aera
 struct Name {
@@ -102,7 +95,7 @@ struct Name {
 
 ## Variant
 
-A variant declaration introduces a new variant type and its constructors into the current module.
+A variant item introduces a new variant type and its constructors into the current module.
 
 ```aera
 variant Name {

@@ -19,7 +19,7 @@ function isActive(href: string) {
 <header class="header">
     <nav class="nav">
         <a href="/" class="nav-brand">
-        <img src="/mimi.svg" alt="" width="36" height="36" />
+        <img src="/mallow.svg" alt="" width="36" height="36" />
         <span>Aera</span>
         </a>
 
@@ -166,6 +166,7 @@ function isActive(href: string) {
         background: color-mix(in srgb, var(--background) 80%, transparent);
     }
 
+    .icon-menu { display: inline-flex; }
     .icon-close { display: none; }
 
     .nav-mobile {
@@ -196,6 +197,8 @@ function isActive(href: string) {
 <script>
     const toggle = document.getElementById('nav-toggle')!
     const mobile = document.getElementById('nav-mobile')!
+    const menuIcon = toggle.querySelector('.icon-menu') as HTMLElement
+    const closeIcon = toggle.querySelector('.icon-close') as HTMLElement
 
     let open = false
 
@@ -204,8 +207,8 @@ function isActive(href: string) {
         toggle.setAttribute('aria-expanded', String(open))
         toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
         mobile.setAttribute('aria-hidden', String(!open))
-        mobile.style.display = open ? 'flex' : ''
-        ;(toggle.querySelector('.icon-menu') as HTMLElement).style.display = open ? 'none' : ''
-        ;(toggle.querySelector('.icon-close') as HTMLElement).style.display = open ? '' : 'none'
+        mobile.style.display = open ? 'flex' : 'none'
+        menuIcon.style.display = open ? 'none' : 'inline-flex'
+        closeIcon.style.display = open ? 'inline-flex' : 'none'
     })
 </script>

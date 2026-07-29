@@ -13,7 +13,7 @@ Aera’s type system is designed to be expressive, safe, and simple. Many of the
 ## Primitive Types
 
 ### Integer
-Aera provides signed and unsigned integer types. If no type is specified, integers default to int32. Unsigned types are prefixed with u. The built-in integer types are:
+Aera provides signed and unsigned integer types. If no type is specified, integers default to `int32`. Unsigned types are prefixed with `u`. The built-in integer types are:
 - `int8` / `uint8`
 - `int16` / `uint16`
 - `int32` / `uint32`
@@ -50,7 +50,7 @@ false
 
 ### Character
 
-A `char` is an integer type that stores a single character and occupies 1 byte of memory. Characters are enclosed in single quotation marks ('').
+A `char` is an integer type that stores a single character and occupies 1 byte of memory. Characters are enclosed in single quotation marks (`''`).
 
 ```aera
 'a'
@@ -59,7 +59,7 @@ A `char` is an integer type that stores a single character and occupies 1 byte o
 
 ### String
 
-A `string` is a **sequence** of characters, enclosed in double quotation marks ("").
+A `string` is a **sequence** of characters, enclosed in double quotation marks (`""`).
 
 ```aera
 "hello world"
@@ -93,13 +93,15 @@ let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
 A tuple is a fixed-size data structure that stores elements of different types (heterogeneous) in contiguous memory.
 Tuples are useful for returning multiple values from a function.
 
+```aera
+let tuple = ("hello world", true)
+```
+
 > **Note**
 >
 > As of 0.0.1, Aera does not support tuples in the language.
 
-```aera
-let tuple = ("hello world", true)
-```
+
 ### Struct
 
 A struct is a product type. It defines a compositie data type.
@@ -120,13 +122,13 @@ A `map!<K, V>` is a generic associative container that stores key-value pairs, w
 
 Maps are useful for storing and retrieving data by keys quickly and are implemented using a hash-based structure under the hood.
 
-> **Note**
->
-> As of 0.0.1, Aera does not support maps in the language.
-
 ```aera
 let fruits: map!<str, int32> = {"apple": 0, "banana": 1 }
 ```
+
+> **Note**
+>
+> As of 0.0.1, Aera does not support maps in the language.
 
 ## Option And Result Types
 
@@ -171,11 +173,11 @@ match result {
 >
 > As of 0.0.1, Aera does not support result types in the language.
 
-### Operators
+## Operators
 
 Aera provides two convenient operators for working with optionals and errors: the try propagation`?` and fallback `??` operators.
 
-### Try Propagation (?) Operator
+### Try Propagation (?)
 The `?` operator is used to unwrap both optional and error values. 
 
 When applied to an optional (`opt!<T>`), it unwraps the contained value if present, or returns `none` immediately from the current function if the value is absent. 
@@ -195,7 +197,7 @@ fn read_file(path: string) -> res!<string, err> {
     return ok(content)
 }
 ```
-### Fallback (??) Operator
+### Fallback (??)
 
 The `??` operator is used to provide a fallback value for both optional and result types. 
 

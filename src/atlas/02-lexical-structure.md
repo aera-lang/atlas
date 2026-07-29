@@ -10,12 +10,12 @@ Aera’s lexical structure defines the basic symbols, tokens, and formatting rul
 Aera source files are encoded in UTF-8.
 
 ## Identifiers
-An identifier starts with an alphabetic character or an underscore, followed by any number of alphanumeric characters or underscores: [a-zA-Z_][a-zA-Z0-9_]
+An identifier starts with an alphabetic character or an underscore, followed by any number of alphanumeric characters or underscores: `[a-zA-Z_][a-zA-Z0-9_]`
 
 ## Keywords
 
 The following are reserved keywords and cannot be used as identifiers:
-`fn, let, mut, const, pub, if, else, for, while, loop, match, break, return, module, use, struct, variant, trait, in, as`
+`fn, let, mut, const, pub, if, else, for, while, loop, match, break, return, module, use, struct, variant, in, as`
 
 > **Note**
 >
@@ -69,12 +69,12 @@ Listed below are the following punctuation and separator tokens used in Aera:
 | Token    | Description                                                                               |
 | -------- | ----------------------------------------------------------------------------------------- |
 | \[ and ] | Subscript and deduced parameter lists                                                     |
-| ( and )  | Function calls and tuple literals                                           |
-| { and }  | Blocks of control flow expressions, struct literals, body definitions |
+| ( and )  | Function calls and tuple literals                                                         |
+| { and }  | Blocks of control flow expressions, struct literals, body definitions                     |
 | ,        | Separate tuple and array elements                                                         |
 | .        | Member access                                                                             |
 | :        | Name binding patterns                                                                     |
-                                
+| ::       | Module access                                                                             |
 
 ### Other Tokens
 Listed below are some other tokens used in Aera that don’t fit into the above categories:

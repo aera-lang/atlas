@@ -28,7 +28,7 @@ num = 4 # NOW allowed
 
 ## Scope
 
-Aera uses lexical (block) scope. A variable is only accessible within the block ({ … }) in which it is declared.
+Aera uses lexical (block) scope. A variable is only accessible within the block (`{ … }`) in which it is declared.
 
 ### Shadowing
 
@@ -72,7 +72,7 @@ let y = 0                # valid, type inferred from expression
 let z: float64 = 3.14    # valid, explicit type and initialization
 ```
 
-If a variable is **declared without an initializer**, it will result in a **compilation error**.
+If a variable is declared without an initializer, it will result in a **compilation error**.
 
 ## Type Annotations
 
