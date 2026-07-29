@@ -38,6 +38,8 @@ That language is Aera.
 - Behaviour is visible, not hidden.
 - Explicit over implicit.
 
+For the reasoning behind these choices, see the [Vision](https://aera.codes/vision).
+
 > **Note**
 >
 > Note that documentation may not reflect the current state of the language, as the language is still evolving.
