@@ -4,7 +4,7 @@ order: 7
 description: Modules in Aera
 ---
 
-A module, at its simplest, is a file. Every file must explicity declare its own module name through the use of the `module` keyword, followed by the name:
+A module, at its simplest, is a file. Every file must explicity declare its own module name by using the `module` keyword, followed by the name:
 
 ```aera
 module name
