@@ -6,29 +6,27 @@
     --lavender: #e2d6f9;
     --cream: #db97ad;
     --mist: #faf4f6;
-    --deep: #2d2140;
+    --deep: #40212b;
 
     --background: #fdf9fa;
-    --foreground: #241a35;
+    --foreground: #351a22;
 
     --card: #ffffff;
-    --card-foreground: #241a35;
+    --card-foreground: #351a22;
     --popover: #ffffff;
-    --popover-foreground: #241a35;
+    --popover-foreground: #351a22;
 
     --primary: #d9819c;
     --primary-foreground: #ffffff;
 
     --secondary: #faf4f6;
-    --secondary-foreground: #241a35;
+    --secondary-foreground: #351a22;
 
     --muted: #faf4f6;
     --muted-foreground: #6e6274;
 
     --accent: #f0c3d1;
-    --accent-foreground: #241a35;
-
-    --destructive: oklch(0.577 0.245 27.325);
+    --accent-foreground: #351a22;
 
     --border: #eddce3;
     --input: #eddce3;
