@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content'
+import AtlasDoc from '../../components/atlas-doc.astro'
+
+const entries = await getCollection('atlas')
+const introEntry = [...entries].sort((a, b) => a.data.order - b.data.order)[0]
+---
+
+<AtlasDoc entry={introEntry} entries={entries} />

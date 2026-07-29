@@ -1,4 +1,9 @@
-# Expressions
+---
+title: Expressions
+order: 4
+description: The expressions that Aera supports.
+---
+
 Expressions compute values in Aera. 
 
 ## Two Types of Expressions
@@ -94,7 +99,7 @@ for value in collection {
 }
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support for loops in the language.
 
@@ -130,7 +135,7 @@ match val {
 }
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support the match expression in the language.
 
@@ -161,9 +166,21 @@ for i in 0..10 {
 } 
 ```
 
-### Expression Without Block
+## Expression Without Block
 
-These are familiar expressions seen in other languages. The following table showcases operator precedence and associativity rules for these expressions.
+These are familiar expressions seen in other languages, such as binary and unary expressions. Examples include:
+
+```aera
+5
+(1 + 2) + 3
+4 / 5
+12 == 12
+2 && 5
+```
+
+### Precedence
+
+The following table showcases operator precedence and associativity rules for these expressions:
 
 | Precedence | Operators | Description | Associativity |
 |------------|-----------|-------------|---------------|
@@ -179,13 +196,3 @@ These are familiar expressions seen in other languages. The following table show
 | 10 | && | Logical AND | Left-to-right |
 | 11 | \|\| | Logical OR | Left-to-right |
 | 12 (Lowest) | =, +=, -=, *=, /=, %=, <<=, >>=, &=, \|=, ^- | Assignment and compound assignment | Right-to-left |
-
-Examples include:
-
-```
-5
-(1 + 2) + 3
-4 / 5
-12 == 12
-2 && 5
-```

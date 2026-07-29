@@ -1,6 +1,13 @@
-# Type System
+---
+title: Type System
+order: 3
+description: Aera's type system.
+---
+
 Aera’s type system is designed to be expressive, safe, and simple. Many of the types listed below are types seen in other languages, such as OCaml.
 
+> **Note**
+>
 > In Aera, types are immutable by default. To make them mutable, the `mut` keyword must be provided after the `let` keyword.
 
 ## Primitive Types
@@ -81,7 +88,7 @@ Declared using the `arr!<T>` container. They support adding and removing element
 let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support arrays in the language.
 
@@ -90,7 +97,7 @@ let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
 A tuple is a fixed-size data structure that stores elements of different types (heterogeneous) in contiguous memory.
 Tuples are useful for returning multiple values from a function.
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support tuples in the language.
 
@@ -117,7 +124,7 @@ A `map!<K, V>` is a generic associative container that stores key-value pairs, w
 
 Maps are useful for storing and retrieving data by keys quickly and are implemented using a hash-based structure under the hood.
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support maps in the language.
 
@@ -140,7 +147,7 @@ match maybe_value {
 }
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support optionals in the language.
 
@@ -164,7 +171,7 @@ match result {
 }
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support result types in the language.
 
@@ -208,7 +215,7 @@ fn safe_divide(a: int, b: int) -> int {
 }
 ```
 
-> **Warning**
+> **Note**
 >
 > As of 0.0.1, Aera does not support optional and result operators in the language.
 

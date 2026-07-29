@@ -1,4 +1,8 @@
-# Variables
+---
+title: Statements
+order: 5
+description: Statements in Aera.
+---
 
 Variables in Aera are named values that are immutable by default, with optional type declarations.
 

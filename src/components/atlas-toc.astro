@@ -1,0 +1,88 @@
+---
+type Heading = { depth: number; slug: string; text: string }
+
+interface Props {
+    headings: Heading[]
+}
+
+const { headings } = Astro.props
+---
+
+{headings.length > 0 && (
+    <nav class="atlas-toc" aria-label="On this page">
+        <span class="toc-label">On this page</span>
+        {headings.map(h => (
+            <a
+                href={`#${h.slug}`}
+                class="toc-link"
+                data-id={h.slug}
+                style={h.depth >= 3 ? 'padding-left: 1.25rem; font-size: 0.8125rem;' : undefined}
+            >
+                {h.text}
+            </a>
+        ))}
+    </nav>
+)}
+
+<style>
+    .atlas-toc {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+        font-size: 0.875rem;
+    }
+
+    .toc-label {
+        padding: 0 0.75rem 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted-foreground);
+    }
+
+    .toc-link {
+        display: block;
+        border-left: 1px solid var(--border);
+        padding: 0.25rem 0.75rem;
+        color: var(--muted-foreground);
+        text-decoration: none;
+        transition: color 0.15s, border-color 0.15s;
+    }
+
+    .toc-link:hover { color: var(--deep); }
+    .toc-link.active {
+        border-left-color: var(--primary);
+        color: var(--primary);
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    const toc = document.querySelector('.atlas-toc')
+    if (toc) {
+        const links = Array.from(toc.querySelectorAll<HTMLAnchorElement>('[data-id]'))
+        const ids = links.map(l => l.dataset.id!)
+
+        function setActive(id: string) {
+            links.forEach(l => l.classList.toggle('active', l.dataset.id === id))
+        }
+
+        if (ids.length > 0) setActive(ids[0])
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+                if (visible[0]) setActive(visible[0].target.id)
+            },
+            { rootMargin: '-80px 0px -70% 0px', threshold: 0 },
+        )
+
+        ids.forEach(id => {
+            const el = document.getElementById(id)
+            if (el) observer.observe(el)
+        })
+    }
+</script>

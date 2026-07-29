@@ -1,4 +1,8 @@
-# Lexical Structure
+---
+title: Lexical Structure
+order: 2
+description: Symbols and tokens.
+---
 
 Aera’s lexical structure defines the basic symbols, tokens, and formatting rules that make up valid source code.
 

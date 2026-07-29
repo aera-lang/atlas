@@ -1,0 +1,114 @@
+---
+type NavPage = { slug: string; title: string; group?: string }
+
+interface Props {
+    pages: NavPage[]
+    current: string
+}
+
+const { pages, current } = Astro.props
+
+const groups: { label: string | null; pages: NavPage[] }[] = []
+for (const page of pages) {
+    const label = page.group ?? null
+    let bucket = groups.find(g => g.label === label)
+    if (!bucket) {
+        bucket = { label, pages: [] }
+        groups.push(bucket)
+    }
+    bucket.pages.push(page)
+}
+---
+
+<nav class="atlas-nav" aria-label="Atlas pages">
+    {groups.map(group => (
+        group.label === null ? (
+            group.pages.map(page => (
+                <a
+                    href={`/atlas/${page.slug}`}
+                    class="nav-section"
+                    aria-current={page.slug === current ? 'page' : undefined}
+                >
+                    {page.title}
+                </a>
+            ))
+        ) : (
+            <div class="nav-group">
+                <span class="nav-group-label">{group.label}</span>
+                <div class="nav-subsections">
+                    {group.pages.map(page => (
+                        <a
+                            href={`/atlas/${page.slug}`}
+                            class="nav-sub"
+                            aria-current={page.slug === current ? 'page' : undefined}
+                        >
+                            {page.title}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        )
+    ))}
+</nav>
+
+<style>
+    .atlas-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+        font-size: 0.875rem;
+    }
+
+    .nav-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+    }
+
+    .nav-group:first-child {
+        margin-top: 0;
+    }
+
+    .nav-group-label {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted-foreground);
+    }
+
+    .nav-section {
+        display: block;
+        border-radius: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        font-weight: 500;
+        color: var(--deep);
+        text-decoration: none;
+        transition: background-color 0.15s, color 0.15s;
+    }
+
+    .nav-section:hover { background: var(--mist); }
+    .nav-section[aria-current='page'] { background: var(--accent); color: var(--accent-foreground); }
+
+    .nav-subsections {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+        border-left: 1px solid var(--border);
+        padding-left: 0.75rem;
+    }
+
+    .nav-sub {
+        display: block;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.8125rem;
+        color: var(--muted-foreground);
+        text-decoration: none;
+        transition: color 0.15s, font-weight 0.15s;
+    }
+
+    .nav-sub:hover { color: var(--deep); }
+    .nav-sub[aria-current='page'] { color: var(--primary); font-weight: 500; }
+</style>

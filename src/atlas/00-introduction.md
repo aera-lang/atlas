@@ -1,4 +1,8 @@
-# Introduction
+---
+title: Introduction
+order: 0
+description: About the Aera language.
+---
 
 Aera is an expression-oriented programming language designed with clarity and simplicity in mind. Its goal is to be a suitable alternative language for developing interactive applications (i.e., games and graphical interfaces).
 
@@ -34,15 +38,6 @@ That language is Aera.
 - Behaviour is visible, not hidden.
 - Explicit over implicit.
 
-For the reasoning behind these choices, see the [Vision](https://aera.codes/vision).
-
-> **Warning**
+> **Note**
 >
 > Note that documentation may not reflect the current state of the language, as the language is still evolving.
-
-## Version
-
-| Item | Value |
-| ---- | ----- |
-| Aera | 0.0.1 |
-| Atlas | 0.0.1 |

@@ -1,4 +1,8 @@
-# Getting Started
+---
+title: Getting Started
+order: 1
+description: Your first Aera program.
+---
 
 This guide walks you through installing Aera and running your first program in the REPL.
 
@@ -17,7 +21,7 @@ make run
 
 This builds and launches the REPL. 
 
-> **Warning**
+> **Note**
 >
 > There's also make interpret FILE=path/to/file.aera, but the interpreter path is far less stable. You can use it, but expect things not to work perfectly.
 

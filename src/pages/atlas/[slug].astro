@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content'
+import AtlasDoc from '../../components/atlas-doc.astro'
+
+export async function getStaticPaths() {
+    const entries = await getCollection('atlas')
+    return entries.map(entry => ({
+        params: { slug: entry.id },
+        props: { entry, entries },
+    }))
+}
+
+const { entry, entries } = Astro.props
+---
+
+<AtlasDoc entry={entry} entries={entries} />

@@ -1,4 +1,8 @@
-# Items
+---
+title: Items
+order: 6
+description: Items in Aera
+---
 
 Items are declarations that introduce names into a module. They define thetop-level components of a program, such as functions, types, constants, and other declarations.
 
