@@ -4,9 +4,9 @@ order: 6
 description: Items in Aera
 ---
 
-Items are declarations that introduce names into a module. They define thetop-level components of a program, such as functions, types, constants, and other declarations.
+Items are declarations that introduce names into a module. They define the top-level components of a program, such as functions, types, constants, and other items.
 
-## Functions
+## Function
 
 Functions are defined using the `fn` keyword. 
 
@@ -59,7 +59,7 @@ fn factorial(n: int32) -> int32 {
 }
 ```
 
-## Const
+## Const 
 
 A const item is similar to a let statement, with the difference being that the value is known at compile time.
 
@@ -74,23 +74,16 @@ Const items are immutable, you cannot use the `mut` keyword on them, or it will 
 ## Module
 
 A module declaration defines the name of the current module.
-
-### Syntax
+Modules can only have one module declaration, and the module name must be unique within the program.
 
 ```aera
 module Name
 ```
 
-### Notes
-
-- A module can only have one module declaration.
-- The module name must be unique within the program.
 
 ## Use
 
 A use declaration makes names from another module available in the current module.
-
-### Syntax
 
 ```aera
 use module
@@ -99,8 +92,6 @@ use module
 ## Struct
 
 A struct declaration introduces a new struct type into the current module.
-
-### Syntax
 
 ```aera
 struct Name {
@@ -112,8 +103,6 @@ struct Name {
 ## Variant
 
 A variant declaration introduces a new variant type and its constructors into the current module.
-
-### Syntax
 
 ```aera
 variant Name {

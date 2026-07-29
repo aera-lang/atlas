@@ -71,18 +71,14 @@ A `string` is a **sequence** of characters, enclosed in double quotation marks (
 
 An array is a fixed-size data structure that stores elements of the same type (homogeneous) in contiguous memory.
 
-#### Static arrays
-
-Can be declared by specifying the element type, or omitted. The size is **fixed** at declaration; elements can change, but the length cannot.
+Static arrays can be declared by specifying the element type, or omitted. The size is **fixed** at declaration; elements can change, but the length cannot.
 
 ```aera
 let mut n: int32[4] = [0, 1, 2, 3]
 let n = [4, 5, 6, 7] # default = static immutable array
 ```
 
-#### Dynamic arrays
-
-Declared using the `arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
+Dynamic arrays are declared using the `arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
 
 ```aera
 let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]

@@ -49,7 +49,7 @@ Aera does not provide a ternary operator, however, you can "mimic" the presence 
 let result = if cond { do_something } else { do_something_else() }
 ```
 
-### while
+### while expression
 
 The `while` expression is a loop in which the condition is evaluated before each iteration. As long as the condition is true, the loop continues.
 
@@ -139,8 +139,8 @@ match val {
 >
 > As of 0.0.1, Aera does not support the match expression in the language.
 
-### break
-
+### break expression
+ 
 The `break` expression stops execution inside of a loop.
 
 ```aera
@@ -153,7 +153,7 @@ while cond {
 }
 ```
 
-### return
+### return expression
 
 The `return` expression exits a function and returns a value.
 

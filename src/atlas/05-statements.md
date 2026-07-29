@@ -54,7 +54,7 @@ Variables in Aera must start with a letter (`a–z` or `A–Z`) or underscore (`
 The reserved words in Aera are:
 `fn, let, mut, const, pub, if, else, for, while, loop, match, break, return, module, use, struct, variant, in, as`
 
-These words **cannot be used as variable names**.
+These words **cannot** be used as variable names.
 
 > **Note**
 >

@@ -82,7 +82,7 @@ While the `/` operator corresponds to an actual file on disk to locate a modules
 You can't declare a module inside of another module:
 
 ```aera
-// Not allowed
+# Not allowed
 module name1 {
     module name2 { ... }
 }
