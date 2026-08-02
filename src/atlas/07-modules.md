@@ -4,17 +4,18 @@ order: 7
 description: Modules in Aera
 ---
 
-A module, at its simplest, is a file. Every file must explicity declare its own module name by using the `module` keyword, followed by the name:
+A module, at its simplest, is a file. The name of the module is the name of the file minus the extension:
 
 ```aera
-module name
+person.aera # is the Person module
 ```
 
-## Explicit, Not Inferred
+> **Note**
+>
+> Renaming a file changes its module name, and will break every local importer.
+> Eventually, Aera will have an LSP which will rewrite all call sites automatically, but for now, this is 
+> an accepted trade-off that will make development simpler.
 
-Modules are never inferred by their file name, so renaming a file never breaks anything that imports it.
-
-For example, say `io.aera` declares `module io`. You can rename the file to `stdio.aera`, and every place that does `use std/io` still resolves correctly, because the module's identity comes from the `module` declaration, not the file path.
 
 ## Using Modules
 

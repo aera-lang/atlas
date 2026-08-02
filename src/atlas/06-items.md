@@ -73,7 +73,6 @@ Modules can only have one module declaration, and the module name must be unique
 module Name
 ```
 
-
 ## Use
 
 A use item makes names from another module available in the current module.
