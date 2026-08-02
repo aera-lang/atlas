@@ -12,9 +12,7 @@ person.aera # is the Person module
 
 > **Note**
 >
-> Renaming a file changes its module name, and will break every local importer.
-> Eventually, Aera will have an LSP which will rewrite all call sites automatically, but for now, this is 
-> an accepted trade-off that will make development simpler.
+> Renaming a file changes its module name, and will break every local importer. Eventually, Aera will have an LSP which will rewrite all call sites automatically, but for now, this is an accepted trade-off that will make development simpler.
 
 
 ## Using Modules
