@@ -78,10 +78,10 @@ let mut n: int32[4] = [0, 1, 2, 3]
 let n = [4, 5, 6, 7] # default = static immutable array
 ```
 
-Dynamic arrays are declared using the `arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
+Dynamic arrays are declared using the `Arr!<T>` container. They support adding and removing elements at runtime. Unless the array size is known in advance, dynamic arrays are **preferred**.
 
 ```aera
-let mut n: arr!<float64> = [1.0, 2.0, 4.0, 8.0]
+let mut n: Arr!<float64> = [1.0, 2.0, 4.0, 8.0]
 ```
 
 > **Note**
@@ -115,7 +115,7 @@ struct Player {
 
 ### Map
 
-A `map!<K, V>` is a generic associative container that stores key-value pairs, where each key of type `K` is uniquely associated with a value of type `V`. It provides efficient lookup, insertion, and removal operations based on keys.
+A `Map!<K, V>` is a generic associative container that stores key-value pairs, where each key of type `K` is uniquely associated with a value of type `V`. It provides efficient lookup, insertion, and removal operations based on keys.
 
 - `K` represents the type of the keys.
 - `V` represents the type of the values.
@@ -123,7 +123,7 @@ A `map!<K, V>` is a generic associative container that stores key-value pairs, w
 Maps are useful for storing and retrieving data by keys quickly and are implemented using a hash-based structure under the hood.
 
 ```aera
-let fruits: map!<str, int32> = {"apple": 0, "banana": 1 }
+let fruits: Map!<str, int32> = {"apple": 0, "banana": 1 }
 ```
 
 > **Note**
@@ -137,11 +137,11 @@ let fruits: map!<str, int32> = {"apple": 0, "banana": 1 }
 An option type explicitly represents values that might not exist. This is the only way to represent "null" or missing values in Aera, making null pointer errors impossible for managed types.
 
 ```aera
-let maybe_value: opt!<int32> = some(42)
+let maybe_value: Option!<int32> = Some(42)
 
 match maybe_value { 
-    some(value) => print(value)
-    none => print("No value")
+    Some(value) => print(value)
+    None => print("No value")
 }
 ```
 
@@ -154,18 +154,18 @@ match maybe_value {
 A result type represents operations that can either succeed with a value of type `T` or fail with an error of type `E`. This makes error handling explicit and prevents forgotten error checks.
 
 ```aera
-fn divide(a: float64, b: float64) -> res!<float64, string> { 
+fn divide(a: float64, b: float64) -> Result!<float64, string> { 
     if b == 0.0 { 
-        err("Division by zero")
+        Err("Division by zero")
     } 
-    ok(a / b)
+    Ok(a / b)
 } 
 
 let result = divide(10.0, 2.0)
 
 match result { 
-    ok(value) => print(value)
-    err(message) => print(message)
+    Ok(value) => print(value)
+    Err(message) => print(message)
 }
 ```
 
