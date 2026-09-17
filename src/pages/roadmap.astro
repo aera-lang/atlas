@@ -21,50 +21,51 @@ const milestones: Milestone[] = [
     {
         version: '0.0.2',
         title: 'Diagnostics & error recovery',
-        status: 'in progress',
+        status: 'done',
         notes: 'Make syntax errors easier to understand and recover from in the lexer and parser.',
     },
     {
         version: '0.0.3',
         title: 'Complete syntax',
-        status: 'planned',
+        status: 'done',
         notes: 'Complete the 0.1 grammar, AST, and parser for all remaining language syntax.',
     },
     {
         version: '0.0.4',
         title: 'Compound types',
-        status: 'planned',
+        status: 'done',
         notes: 'Add tuples and static arrays to the language. ',
     },
+   
     {
         version: '0.0.5',
+        title: 'Semantic analysis',
+        status: 'in progress',
+        notes: 'Implement semantic analysis, including name resolution and scope validation.',
+    },
+    {
+        version: '0.0.6',
         title: 'Type system',
         status: 'planned',
         notes: 'Implement Aera’s static type system and type inference.',
     },
-   {
-        version: '0.0.6',
-        title: 'Semantic analysis',
-        status: 'planned',
-        notes: 'Implement semantic analysis, including name resolution and scope validation.',
-    },
     {
         version: '0.0.7',
+        title: 'Bytecode VM',
+        status: 'planned',
+        notes: 'Implement a working bytecode VM capable of executing Aera programs.',
+    },
+    {
+        version: '0.0.8',
         title: 'Module system',
         status: 'planned',
         notes: 'Create a module system for Aera.',
     },
     {
-        version: '0.0.8',
+        version: '0.0.9',
         title: 'Standard library',
         status: 'planned',
         notes: 'Create simple modules as part of the std.',
-    },
-    {
-        version: '0.0.9',
-        title: 'Interpreter',
-        status: 'planned',
-        notes: 'Implement a working interpreter capable of executing more complex Aera programs.',
     },
     {
         version: '0.1.0',
